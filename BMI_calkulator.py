@@ -1,5 +1,3 @@
-from curses.ascii import isdigit
-
 from setuptools.wheel import Wheel
 
 print('Добро пожаловать в калькулятор ИМТ!!!')
@@ -18,10 +16,23 @@ while True:
 
 
 def calculator(h, w):
-    result = h/w
-    return print(round(result, 2))
+    result = w/((h/100)**2)
+    return round(result, 2)
 
-calculator(height, weight)
+
+person = calculator(height, weight)
+
+if person < 18.5:
+    print("Недостаточная масса тела !")
+elif 18.5 == person < 24.9:
+    print("Норма !!!")
+elif 25 >= person < 29.9:
+    print('Избыточная масса тела')
+else:
+    print("Ожирение !")
+
+
+
 
 
 
